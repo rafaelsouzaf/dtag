@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.github.rafaelsouzaf.dtag.client.parser.JsObject;
+import com.google.gwt.core.client.GWT;
 
 public class ReplaceMarks {
 
@@ -13,6 +14,16 @@ public class ReplaceMarks {
 	 * @param bean
 	 * @return Retorna el HTML con las marcas[] reemplazadas por su respectivo valor.
 	 */
+	public String replace(String html, Map<String, Object> map) {
+		
+		for (Map.Entry<String, Object> entry : map.entrySet()) {
+	        GWT.log("Key : " + entry.getKey() + " Value : " + entry.getValue());
+	    }
+		
+		return replaceTags(map, html);
+		
+	}
+	
 	public String replateDTAGTags(String html, JsObject bean) {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();

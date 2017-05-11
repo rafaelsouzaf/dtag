@@ -10,8 +10,7 @@ import com.google.gwt.core.client.JsonUtils;
  */
 public class JsonResultObject extends JavaScriptObject {
 
-	protected JsonResultObject() {
-	}
+	protected JsonResultObject() {}
 
 	public final native JsArray<JsObject> getJsArray() /*-{
 		console.log(this);
@@ -52,9 +51,8 @@ public class JsonResultObject extends JavaScriptObject {
 	 * @param JSON String that you trust
 	 * @return JavaScriptObject that you can cast to an Overlay Type
 	 */
-	public static <T extends JavaScriptObject> T parseJson(String jsonStr)
-	{
-	  return JsonUtils.safeEval(jsonStr);
+	public static <T extends JavaScriptObject> T parseJson(String jsonStr) {
+		return JsonUtils.safeEval(jsonStr);
 	}
 
 }
