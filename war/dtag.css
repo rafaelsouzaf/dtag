@@ -3,3 +3,64 @@ DTAG\:LINK, DTAG\:ASSOCIATE, DTAG\:IMG
 {
 	display: none;
 }
+
+.api_notification_panel {
+    width: 250px;
+	position:fixed !important;
+	position:absolute; /*ie6 maldito and above*/
+    right: 0;
+    bottom: 0;
+    margin: 0px 5px 5px 0px;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+	font: 13px/130% Arial,Helvetica,sans-serif;
+}
+
+.api_notification_error, .api_notification_warning, .api_notification_info {
+	border-radius: 4px 4px 4px 4px;
+    color: #333333;
+    display: block;
+    height: 1% !important;
+    min-height: 25px;
+    margin: 5px 0 0;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    z-index: 999;
+}
+.api_notification_error {
+	background: none repeat scroll 0 0 #FCCAC3;
+	border: 1px solid #EB5439;
+}
+.api_notification_warning {
+	background: none repeat scroll 0 0 #FFEAA9;
+    border: 1px solid #F9B516;
+}
+.api_notification_info {
+	background: none repeat scroll 0 0 #D1E4F3;
+    border: 1px solid #4D8FCB;
+}
+
+.api_notification_error_msg, .api_notification_warning_msg, .api_notification_info_msg {
+	float:left;
+	width:200px;
+}
+
+.api_notification_error_icon, .api_notification_warning_icon, .api_notification_info_icon {
+	background-position: center top;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 30px;
+    margin-right: 7px;
+    width: 31px;
+}
+.api_notification_error_icon {
+    background-image: url("css/icon/error.png");
+}
+.api_notification_warning_icon {
+    background-image: url("css/icon/warning.png");
+}
+.api_notification_info_icon {
+    background-image: url("css/icon/info.png");
+}

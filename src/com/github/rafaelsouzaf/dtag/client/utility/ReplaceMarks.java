@@ -1,28 +1,12 @@
 package com.github.rafaelsouzaf.dtag.client.utility;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.github.rafaelsouzaf.dtag.client.parser.JsObject;
-import com.google.gwt.core.client.GWT;
 
 public class ReplaceMarks {
-
-	/**
-	 * Reemplaza todas las marcas [] soportadas por su respectivo valor.
-	 * @param html
-	 * @param bean
-	 * @return Retorna el HTML con las marcas[] reemplazadas por su respectivo valor.
-	 */
-	public String replace(String html, Map<String, Object> map) {
-		
-		for (Map.Entry<String, Object> entry : map.entrySet()) {
-	        GWT.log("Key : " + entry.getKey() + " Value : " + entry.getValue());
-	    }
-		
-		return replaceTags(map, html);
-		
-	}
 	
 	public String replateDTAGTags(String html, JsObject bean) {
 
@@ -90,7 +74,7 @@ public class ReplaceMarks {
 	 * @param html
 	 * @return Retorna el HTML con las [marcas] reemplazadas por su respectivo valor.
 	 */
-	private String replaceTags(Map<String, Object> map, String html) {
+	public String replaceTags(Map<String, Object> map, String html) {
 		for (Map.Entry<String, Object> separa : map.entrySet()) {
 			if (separa.getValue() == null) {
 				continue;
@@ -105,6 +89,31 @@ public class ReplaceMarks {
 		return html;
 	}
 
+	public String replaceTags(List<Object> listObjects, String html) {
+		String finalHtml = "";
+		
+		for (Object obj : listObjects) {
+			
+			String newHtml = html;
+			
+			Map<String, Object> map = (Map<String, Object>) obj;
+			for (Map.Entry<String, Object> separa: map.entrySet()) {
+				if (separa.getValue() == null) {
+					continue;
+				}
+				if (html.contains("[" + separa.getKey() + "]")) {
+					html = html.replace("[" + separa.getKey() + "]", separa.getValue() + "");
+				}
+				if (html.contains("%5B" + separa.getKey() + "%5D")) {
+					html = html.replace("%5B" + separa.getKey() + "%5D", separa.getValue() + "");
+				}
+			}
+			
+			finalHtml += newHtml;
+			
+		}
+		return finalHtml;
+	}
 
 	/**
 	 * Metodo javascript nativo que remove todas las marcas [] que no seran
