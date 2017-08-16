@@ -1,7 +1,7 @@
 # Dtag
 Set of custom HTML tags that allow add content in your page using externals JSON APIs without knowledge of programming. Is mainly for web designers that need to see content you a website without big effort. And without depending of a web developer.
 
-**Not ready yeat**
+**Not ready yeat.**
 
 Example:
 
